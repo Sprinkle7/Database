@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/username"
+        android:text="@string/name"
         android:id="@+id/textView" />
 
     <EditText
@@ -20,21 +20,21 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/username"
+        android:id="@+id/Lname"
         android:layout_marginTop="30px" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/password"
+        android:text="@string/rollno"
         android:id="@+id/textView2"
         android:layout_marginTop="30px" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/password"
+        android:id="@+id/rollno"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30px" />
 
@@ -59,11 +59,18 @@
         android:id="@+id/add"
         android:layout_marginTop="30px" />
 
-    <EditText
-        android:layout_width="match_parent"
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/del"
-        android:layout_marginTop="60px" />
+        android:text="@string/Update"
+        android:id="@+id/update" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ShowData"
+        android:id="@+id/show"
+        android:layout_marginTop="30px" />
 
     <Button
         android:layout_width="wrap_content"

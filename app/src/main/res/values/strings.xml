@@ -6,7 +6,12 @@
     <string name="rollno">Roll #</string>
     <string name="Desc">Description</string>
     <string name="AddData">Add Data</string>
+    <string name="ShowData">Show Data</string>
+    <string name="UpdateData">Update</string>
     <string name="Update">Update Data</string>
     <string name="Delete">Delete</string>
     <string name="Edit">Modify</string>
+    <string name="title_activity_lists">Lists</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

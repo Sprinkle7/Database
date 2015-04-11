@@ -1,29 +1,71 @@
 package com.example.nangyalkhan.database;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+
 public class Database extends ActionBarActivity {
-    Button add, delete;
-    EditText username, password, del,desc;
+    Button add, delete,ShowData,Update;
+    EditText Name, RollNo,desc;
+    DataRet DataRetrival;
+    Intent List;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_database);
         add = (Button) findViewById(R.id.add);
         delete =(Button)findViewById(R.id.delete);
-        username = (EditText) findViewById(R.id.username);
-        password = (EditText) findViewById(R.id.password);
-        password = (EditText) findViewById(R.id.desc);
-        del = (EditText) findViewById(R.id.del);
+        ShowData = (Button)findViewById(R.id.show);
+        Update = (Button) findViewById(R.id.update);
+        Name = (EditText) findViewById(R.id.Lname);
+        RollNo = (EditText) findViewById(R.id.rollno);
+        desc = (EditText) findViewById(R.id.desc);
         add.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                String name = Name.getText().toString();
+                String Rollno = RollNo.getText().toString();
+                String description = desc.getText().toString();
+                DataRetrival = new DataRet(getApplicationContext(),name,Rollno,description);
+                Log.d("Done","Inserted");
+            }
+        });
+//        Delete Function Starts Here
+        delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = username.getText().toString();
-                String pass = password.getText().toString();
+                String DeleteID = RollNo.getText().toString();
+                DataRetrival = new DataRet();
+                DataRetrival.DeleteInfo(getApplicationContext(),DeleteID);
+
+            }
+        });
+//        Update Function Starts Here
+        Update.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String ID = RollNo.getText().toString();
+                String NAMES = Name.getText().toString();
+                String DEsc = desc.getText().toString();
+                DataRetrival = new DataRet();
+                Log.d("DONE", "START");
+                DataRetrival.UpdateInfo(getApplicationContext(), NAMES, DEsc, ID);
+                Log.d("DONE", "END");
+            }
+        });
+        {
+        }
+//        Show Data Function and View Starts Here
+        ShowData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                List = new Intent(Database.this,Lists.class);
+                startActivity(List);
             }
         });
     }
